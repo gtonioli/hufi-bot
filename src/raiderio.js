@@ -9,7 +9,7 @@ const functions = {
                 info: response.data,
                 runs: runs
             };
-        }).catch((e) => {
+        }).catch(() => {
             char = {
                 status: "error",
                 msg: "Char não encontrado =("
