@@ -12,7 +12,7 @@ const functions = {
         }).catch((e) => {
             char = {
                 status: "error",
-                msg: "Char não encontrado"
+                msg: "Char não encontrado =("
             }
         });
 
@@ -25,7 +25,7 @@ const functions = {
         }).catch(() => {
             details = {
                 status: "error",
-                msg: "Erro ao buscar informações"
+                msg: "Erro ao buscar informações =("
             };
         });
 
