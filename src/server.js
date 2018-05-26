@@ -4,6 +4,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 const RaiderIO = require("./raiderio");
+const Util = require("./util");
 
 client.on("message", async message => {
   if (message.content.startsWith("!hufi")) {
@@ -13,7 +14,7 @@ client.on("message", async message => {
       if (response.status && response.status === "error") {
         message.reply(response.msg);
       } else {
-        message.reply(RaiderIO.generateText(response));
+        message.channel.send(Util.generateEmbed(response));
       }
     }
   }
