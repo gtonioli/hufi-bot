@@ -7,7 +7,7 @@ const RaiderIO = require("./raiderio");
 const Util = require("./util");
 
 client.on("message", async message => {
-  if (message.content.startsWith("!hufi")) {
+  if (message.content.toLowerCase().startsWith("!hufi")) {
     const arr = message.content.split(" ");
     if (arr.length >= 2) {
       const response = await RaiderIO.getCharacter(arr[1]);
