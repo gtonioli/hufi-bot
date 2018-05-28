@@ -2,19 +2,23 @@ import "babel-polyfill";
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const Commands = require("./commands");
 
-const RaiderIO = require("./raiderio");
-const Util = require("./util");
-
-client.on("message", async message => {
+client.on("message", message => {
   if (message.content.toLowerCase().startsWith("!hufi")) {
     const arr = message.content.split(" ");
     if (arr.length >= 2) {
-      const response = await RaiderIO.getCharacter(arr[1]);
-      if (response.status && response.status === "error") {
-        message.reply(response.msg);
+      const command = arr[1].toLowerCase();
+
+      if (command === "top") {
+        if (arr.length >= 3) {
+          const total = parseInt(arr[2]);
+          if (total > 0) {
+            Commands.rank(message, total);
+          }
+        }
       } else {
-        message.channel.send(Util.generateEmbed(response));
+        Commands.raiderIoScore(message, command);
       }
     }
   }

@@ -18,7 +18,7 @@ const Util = {
 
     return names[shortName];
   },
-  generateEmbed: (char) => {
+  generateScoreEmbed: (char) => {
     const name = char.info.characterDetails.character.name;
     let embed = {
       title: name,
@@ -64,6 +64,31 @@ const Util = {
 
       fields.push(field);
     });
+
+    embed.fields = fields;
+
+    return {
+      embed: embed
+    };
+  },
+  generateRankEmbed: (chars, total) => {
+    let embed = {
+      title: "Top " + total,
+      url: "https://raider.io/guilds/us/azralon/Vem%20Pro%20Pai/mythic-plus-characters"
+    };
+
+    let fields = [];
+
+    for (let i = 0; i < Math.min(chars.length, total); i++) {
+      const char = chars[i];
+      let field = {
+        name: "**" + (i + 1) + "** - __" + char.character.name + "__",
+        value: char.character.class.name + " - " + char.character.spec.name + "\nScore: " + char.score,
+        inline: true
+      };
+
+      fields.push(field);
+    }
 
     embed.fields = fields;
 

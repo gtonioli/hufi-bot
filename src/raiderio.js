@@ -30,6 +30,19 @@ const RaiderIO = {
     });
 
     return details;
+  },
+  getRank: async () => {
+    let rank = [];
+    await axios.get("https://raider.io/api/mythic-plus/rankings/characters?region=us&realm=azralon&guild=Vem%20Pro%20Pai&season=season-7.3.2&class=all&role=all&page=0").then((response) => {
+      rank = response.data.rankings.rankedCharacters;
+    }).catch(() => {
+      rank = {
+        status: "error",
+        msg: "Erro ao buscar informações =("
+      };
+    });
+
+    return rank;
   }
 };
 
