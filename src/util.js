@@ -45,7 +45,7 @@ const Util = {
 
       if (run.num_chests !== undefined) {
         field.value += "Chave: +" + run.mythic_level + "\n";
-        field.value += "Score: " + run.score.toFixed(2) + "\n";
+        field.value += "Score: " + run.score.toFixed(1) + "\n";
         field.value += "Upgrade: ";
 
         if (run.num_chests === 0) {
@@ -83,7 +83,7 @@ const Util = {
       const char = chars[i];
       let field = {
         name: "**" + (i + 1) + "** - __" + char.character.name + "__",
-        value: char.character.class.name + " - " + char.character.spec.name + "\nScore: " + char.score,
+        value: char.character.class.name + " - " + char.character.spec.name + "\nScore: " + Math.round(char.score),
         inline: true
       };
 
