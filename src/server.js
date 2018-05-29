@@ -12,10 +12,12 @@ client.on("message", message => {
 
       if (command === "top") {
         if (arr.length >= 3) {
-          const total = parseInt(arr[2]);
-          if (total > 0) {
-            Commands.rank(message, total);
+          let total = parseInt(arr[2]);
+          if (isNaN(total) || total <= 0) {
+            total = 10
           }
+
+          Commands.rank(message, total);
         }
       } else {
         Commands.raiderIoScore(message, command);
