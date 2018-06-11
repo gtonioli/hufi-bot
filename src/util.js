@@ -38,43 +38,43 @@ const Util = {
     let fields = [];
 
     if (isCustel) {
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 8; i++) {
         fields.push({
           name: "CUSTEL PAGUE SUAS DÚVIDAS!!!",
           value: "CUSTEL PAGUE SUAS DÚVIDAS!!!",
           inline: false
         });
       }
-    }
+    } else {
+      runs.forEach((run) => {
+        let field = {
+          name: "__" + Util.getBrName(run.dungeon.short_name) + "__",
+          value: "",
+          inline: true
+        };
 
-    runs.forEach((run) => {
-      let field = {
-        name: "__" + Util.getBrName(run.dungeon.short_name) + "__",
-        value: "",
-        inline: true
-      };
+        if (run.num_chests !== undefined) {
+          field.value += "Chave: +" + run.mythic_level + "\n";
+          field.value += "Score: " + run.score.toFixed(1) + "\n";
+          field.value += "Upgrade: ";
 
-      if (run.num_chests !== undefined) {
-        field.value += "Chave: +" + run.mythic_level + "\n";
-        field.value += "Score: " + run.score.toFixed(1) + "\n";
-        field.value += "Upgrade: ";
-
-        if (run.num_chests === 0) {
-          field.value += ":poop:";
-        } else {
-          for (let i = 0; i < run.num_chests; i++) {
-            field.value += ":star:";
+          if (run.num_chests === 0) {
+            field.value += ":poop:";
+          } else {
+            for (let i = 0; i < run.num_chests; i++) {
+              field.value += ":star:";
+            }
           }
+
+          field.value += "\n";
+          field.value += "Tempo: " + Util.msToText(run.clear_time_ms);
+        } else {
+          field.value += "Chave ainda não realizada :thinking:";
         }
 
-        field.value += "\n";
-        field.value += "Tempo: " + Util.msToText(run.clear_time_ms);
-      } else {
-        field.value += "Chave ainda não realizada :thinking:";
-      }
-
-      fields.push(field);
-    });
+        fields.push(field);
+      });
+    }
 
     embed.fields = fields;
 
