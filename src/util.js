@@ -40,8 +40,8 @@ const Util = {
     if (isCustel) {
       for (let i = 0; i < 8; i++) {
         fields.push({
-          name: "CUSTEL PAGUE SUAS DÚVIDAS!!!",
-          value: "CUSTEL PAGUE SUAS DÚVIDAS!!!",
+          name: "CUSTEL PAGUE SUAS DÍVIDAS!!!",
+          value: "CUSTEL PAGUE SUAS DÍVIDAS!!!",
           inline: false
         });
       }
