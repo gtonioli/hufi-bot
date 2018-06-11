@@ -20,8 +20,9 @@ const Util = {
   },
   generateScoreEmbed: (char) => {
     const name = char.info.characterDetails.character.name;
+    const isCustel = ["chaospox", "maspox"].indexOf(name.toLowerCase()) !== -1;
     let embed = {
-      title: name,
+      title: name + (isCustel ? " DEVEDOR" : ""),
       url: "https://raider.io/characters/us/azralon/" + name,
       description: "Score: **" + Math.round(char.info.characterDetails.mythicPlusScores.all.score) + "**",
       thumbnail: {
@@ -35,6 +36,16 @@ const Util = {
     });
 
     let fields = [];
+
+    if (isCustel) {
+      for (let i = 0; i < 3; i++) {
+        fields.push({
+          name: "CUSTEL PAGUE SUAS DÚVIDAS!!!",
+          value: "CUSTEL PAGUE SUAS DÚVIDAS!!!",
+          inline: false
+        });
+      }
+    }
 
     runs.forEach((run) => {
       let field = {
