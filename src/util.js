@@ -62,7 +62,7 @@ const Util = {
 
         if (isCustel) {
           field.value += "\n";
-          field.value += "Dívida: " + (Math.floor(Math.random() * 10) + 1) + "k" + Util.msToText(run.clear_time_ms);
+          field.value += "Dívida: " + (Math.floor(Math.random() * 10) + 1) + "k";
         }
       } else {
         field.value += "Chave ainda não realizada :thinking:";
