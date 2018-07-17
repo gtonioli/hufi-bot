@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const season = "season-post-legion";
+const season = "season-pre-bf";
 
 const RaiderIO = {
   getCharacter: async (name) => {
