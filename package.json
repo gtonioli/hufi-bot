@@ -1,6 +1,6 @@
 {
   "name": "hufi-bot",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "scripts": {
     "start": "node dist/server.js",
     "postinstall": "node node_modules/babel-cli/bin/babel src -d dist",
@@ -8,11 +8,12 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "discord.js": "^11.4.1"
+    "babel-polyfill": "^6.26.0",
+    "discord.js": "^11.4.1",
+    "dotenv": "^6.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-polyfill": "^6.26.0"
+    "babel-preset-env": "^1.7.0"
   }
 }

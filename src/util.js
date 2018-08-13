@@ -1,3 +1,5 @@
+import {guild, realm, region} from './config';
+
 class Util {
   static getBrName(shortName) {
     const names = {
@@ -21,10 +23,9 @@ class Util {
 
   static generateScoreEmbed(char) {
     const name = char.info.characterDetails.character.name;
-    const isCustel = ["chaospox", "maspox"].indexOf(name.toLowerCase()) !== -1;
     let embed = {
-      title: name + (isCustel ? " DEVEDOR" : ""),
-      url: "https://raider.io/characters/us/azralon/" + name,
+      title: name,
+      url: "https://raider.io/characters/" + region + "/" + realm + "/" + name,
       description: "Score: **" + Math.round(char.info.characterDetails.mythicPlusScores.all.score) + "**",
       thumbnail: {
         url: "https:" + char.info.characterDetails.character.thumbnailUrl
@@ -60,11 +61,6 @@ class Util {
 
         field.value += "\n";
         field.value += "Tempo: " + Util.msToText(run.clear_time_ms);
-
-        if (isCustel) {
-          field.value += "\n";
-          field.value += "Dívida: " + (Math.floor(Math.random() * 10) + 1) + "k";
-        }
       } else {
         field.value += "Chave ainda não realizada :thinking:";
       }
@@ -82,7 +78,7 @@ class Util {
   static generateRankEmbed(chars, total) {
     let embed = {
       title: "Top " + total,
-      url: "https://raider.io/guilds/us/azralon/Vem%20Pro%20Pai/mythic-plus-characters"
+      url: "https://raider.io/guilds/" + region + "/" + realm + "/" + guild + "/mythic-plus-characters"
     };
 
     let fields = [];

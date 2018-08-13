@@ -1,11 +1,10 @@
 import axios from 'axios';
-
-const season = "season-pre-bfa";
+import {guild, realm, region, season} from './config';
 
 class RaiderIO {
   static async getCharacter(name) {
     let char = {};
-    await axios.get("https://raider.io/api/characters/us/azralon/" + name + "/?season=" + season + "&tier=21").then(async (response) => {
+    await axios.get("https://raider.io/api/characters/" + region + "/" + realm + "/" + name + "/?season=" + season + "&tier=21").then(async (response) => {
       const runs = await RaiderIO.getCharacterDetails(response.data.characterDetails.character.id);
       char = {
         info: response.data,
@@ -37,7 +36,7 @@ class RaiderIO {
 
   static async getRank() {
     let rank = [];
-    await axios.get("https://raider.io/api/mythic-plus/rankings/characters?region=us&realm=azralon&guild=Vem%20Pro%20Pai&season=" + season + "&class=all&role=all&page=0").then((response) => {
+    await axios.get("https://raider.io/api/mythic-plus/rankings/characters?region=" + region + "&realm=" + realm + "&guild=" + guild + "&season=" + season + "&class=all&role=all&page=0").then((response) => {
       rank = response.data.rankings.rankedCharacters;
     }).catch(() => {
       rank = {
