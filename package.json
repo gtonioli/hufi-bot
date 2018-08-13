@@ -1,6 +1,6 @@
 {
   "name": "hufi-bot",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "scripts": {
     "start": "node dist/server.js",
     "postinstall": "node node_modules/babel-cli/bin/babel src -d dist",

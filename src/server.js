@@ -2,6 +2,7 @@ import "babel-polyfill";
 import Commands from './commands';
 import {Client} from 'discord.js/src';
 
+const version = require('../package.json').version;
 const client = new Client();
 
 client.on("message", async message => {
@@ -20,6 +21,8 @@ client.on("message", async message => {
         }
 
         await Commands.rank(message, total);
+      } else if (command === "version") {
+        message.reply(version);
       } else {
         await Commands.raiderIoScore(message, command);
       }
