@@ -1,9 +1,9 @@
 import 'babel-polyfill';
 import 'dotenv/config';
 import Commands from './commands';
+import {version} from './config';
 import {Client} from 'discord.js/src';
 
-const version = require('../package.json').version;
 const client = new Client();
 
 client.on("message", async message => {
@@ -31,4 +31,4 @@ client.on("message", async message => {
   }
 });
 
-client.login("NDQ4NjU4MTIzOTQ3NzY5ODU2.DeZZkg.51n2DFkf9SdCpyQV1MZOJrB0bY0");
+client.login(process.env.DISCORD_TOKEN);
