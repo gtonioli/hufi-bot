@@ -1,26 +1,22 @@
 import {guild, realm, region} from './config';
 
+const DG_NAMES = {
+  "EOA": "Olho de Azshara",
+  "DHT": "Bosque Corenegro",
+  "VOTW": "Câmara das Guardiãs",
+  "LOWR": "Karazhan Inferior",
+  "UPPR": "Karazhan Superior",
+  "SEAT": "Sede do Triunvirato",
+  "NL": "Covil de Neltharian",
+  "COS": "Pátio das Estrelas",
+  "BRH": "Castelo Corvo Negro",
+  "MOS": "Gorja das Almas",
+  "ARC": "O Arcâneo",
+  "HOV": "Salões da Bravura",
+  "COEN": "Catedral da Noite Eterna"
+};
+
 class Util {
-  static getBrName(shortName) {
-    const names = {
-      "EOA": "Olho de Azshara",
-      "DHT": "Bosque Corenegro",
-      "VOTW": "Câmara das Guardiãs",
-      "LOWR": "Karazhan Inferior",
-      "UPPR": "Karazhan Superior",
-      "SEAT": "Sede do Triunvirato",
-      "NL": "Covil de Neltharian",
-      "COS": "Pátio das Estrelas",
-      "BRH": "Castelo Corvo Negro",
-      "MOS": "Gorja das Almas",
-      "ARC": "O Arcâneo",
-      "HOV": "Salões da Bravura",
-      "COEN": "Catedral da Noite Eterna"
-    };
-
-    return names[shortName];
-  }
-
   static generateScoreEmbed(char) {
     const name = char.info.characterDetails.character.name;
     let embed = {
@@ -41,7 +37,7 @@ class Util {
 
     runs.forEach((run) => {
       let field = {
-        name: "__" + Util.getBrName(run.dungeon.short_name) + "__",
+        name: "__" + DG_NAMES[run.dungeon.short_name] + "__",
         value: "",
         inline: true
       };
