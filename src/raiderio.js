@@ -1,9 +1,9 @@
-const axios = require("axios");
+import axios from 'axios';
 
-const season = "season-pre-bf";
+const season = "season-pre-bfa";
 
-const RaiderIO = {
-  getCharacter: async (name) => {
+class RaiderIO {
+  static async getCharacter(name) {
     let char = {};
     await axios.get("https://raider.io/api/characters/us/azralon/" + name + "/?season=" + season + "&tier=21").then(async (response) => {
       const runs = await RaiderIO.getCharacterDetails(response.data.characterDetails.character.id);
@@ -19,8 +19,9 @@ const RaiderIO = {
     });
 
     return char;
-  },
-  getCharacterDetails: async (id) => {
+  }
+
+  static async getCharacterDetails(id) {
     let details = {};
     await axios.get("https://raider.io/api/characters/mythic-plus-scored-runs?season=" + season + "&role=all&mode=scored&affixes=all&date=all&characterId=" + id).then((response) => {
       details = response.data;
@@ -32,8 +33,9 @@ const RaiderIO = {
     });
 
     return details;
-  },
-  getRank: async () => {
+  }
+
+  static async getRank() {
     let rank = [];
     await axios.get("https://raider.io/api/mythic-plus/rankings/characters?region=us&realm=azralon&guild=Vem%20Pro%20Pai&season=" + season + "&class=all&role=all&page=0").then((response) => {
       rank = response.data.rankings.rankedCharacters;
@@ -46,6 +48,6 @@ const RaiderIO = {
 
     return rank;
   }
-};
+}
 
-module.exports = RaiderIO;
+export default RaiderIO;

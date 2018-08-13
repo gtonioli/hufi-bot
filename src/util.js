@@ -1,5 +1,5 @@
-const Util = {
-  getBrName: (shortName) => {
+class Util {
+  static getBrName(shortName) {
     const names = {
       "EOA": "Olho de Azshara",
       "DHT": "Bosque Corenegro",
@@ -17,8 +17,9 @@ const Util = {
     };
 
     return names[shortName];
-  },
-  generateScoreEmbed: (char) => {
+  }
+
+  static generateScoreEmbed(char) {
     const name = char.info.characterDetails.character.name;
     const isCustel = ["chaospox", "maspox"].indexOf(name.toLowerCase()) !== -1;
     let embed = {
@@ -76,8 +77,9 @@ const Util = {
     return {
       embed: embed
     };
-  },
-  generateRankEmbed: (chars, total) => {
+  }
+
+  static generateRankEmbed(chars, total) {
     let embed = {
       title: "Top " + total,
       url: "https://raider.io/guilds/us/azralon/Vem%20Pro%20Pai/mythic-plus-characters"
@@ -101,8 +103,9 @@ const Util = {
     return {
       embed: embed
     };
-  },
-  msToText: (ms) => {
+  }
+
+  static msToText(ms) {
     let seconds = Math.floor(ms / 1000);
     let minute = Math.floor(seconds / 60);
     let hour = Math.floor(minute / 60);
@@ -113,6 +116,6 @@ const Util = {
 
     return ("0" + hour).slice(-2) + ":" + ("0" + minute).slice(-2) + ":" + ("0" + seconds).slice(-2);
   }
-};
+}
 
-module.exports = Util;
+export default Util;

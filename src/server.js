@@ -1,10 +1,10 @@
 import "babel-polyfill";
+import Commands from './commands';
+import {Client} from 'discord.js/src';
 
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const Commands = require("./commands");
+const client = new Client();
 
-client.on("message", message => {
+client.on("message", async message => {
   if (message.content.toLowerCase().startsWith("!hufi")) {
     const arr = message.content.split(" ");
     if (arr.length >= 2) {
@@ -19,9 +19,9 @@ client.on("message", message => {
           }
         }
 
-        Commands.rank(message, total);
+        await Commands.rank(message, total);
       } else {
-        Commands.raiderIoScore(message, command);
+        await Commands.raiderIoScore(message, command);
       }
     }
   }

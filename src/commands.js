@@ -1,8 +1,8 @@
-const RaiderIO = require("./raiderio");
-const Util = require("./util");
+import RaiderIO from './raiderio';
+import Util from './util';
 
-const commands = {
-  raiderIoScore: async (message, charName) => {
+class Commands {
+  static async raiderIoScore(message, charName) {
     const char = await RaiderIO.getCharacter(charName);
 
     if (char.status && char.status === "error") {
@@ -10,8 +10,9 @@ const commands = {
     } else {
       message.channel.send(Util.generateScoreEmbed(char));
     }
-  },
-  rank: async (message, total) => {
+  }
+
+  static async rank(message, total) {
     const rank = await RaiderIO.getRank(total);
 
     if (rank.status && rank.status === "error") {
@@ -20,6 +21,6 @@ const commands = {
       message.channel.send(Util.generateRankEmbed(rank, total));
     }
   }
-};
+}
 
-module.exports = commands;
+export default Commands;
