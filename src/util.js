@@ -1,19 +1,16 @@
 import {guild, realm, region} from './config';
 
 const DG_NAMES = {
-  "EOA": "Olho de Azshara",
-  "DHT": "Bosque Corenegro",
-  "VOTW": "Câmara das Guardiãs",
-  "LOWR": "Karazhan Inferior",
-  "UPPR": "Karazhan Superior",
-  "SEAT": "Sede do Triunvirato",
-  "NL": "Covil de Neltharian",
-  "COS": "Pátio das Estrelas",
-  "BRH": "Castelo Corvo Negro",
-  "MOS": "Gorja das Almas",
-  "ARC": "O Arcâneo",
-  "HOV": "Salões da Bravura",
-  "COEN": "Catedral da Noite Eterna"
+  "AD": "Atal'Dazar",
+  "FH": "Andra do Facão",
+  "KR": "Repouso do Rei",
+  "SOTS": "Santuário da Tempestade",
+  "SIEGE": "Cerco de Boralus",
+  "TOS": "Templo de Sethraliss",
+  "ML": "A MEGAMINA!!!",
+  "UNDR": "A terra Podre",
+  "TD": "Tol Dagor",
+  "WM": "Mansão Capelo"
 };
 
 class Util {
