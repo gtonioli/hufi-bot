@@ -1,5 +1,7 @@
-module.exports.region = process.env.REGION;
-module.exports.realm = process.env.REALM;
-module.exports.season = process.env.SEASON;
-module.exports.guild = process.env.GUILD;
-module.exports.version = require('../package.json').version;
+module.exports = {
+  region: process.env.REGION,
+  realm: process.env.REALM,
+  season: process.env.SEASON,
+  guild: process.env.GUILD,
+  version: require('../package.json').version
+};

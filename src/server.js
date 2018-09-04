@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 import 'dotenv/config';
 import Commands from './commands';
 import {version} from './config';
