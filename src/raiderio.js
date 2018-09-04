@@ -1,10 +1,10 @@
 import axios from 'axios';
-import {guild, realm, region, season} from './config';
+import {guild, realm, region, season, tier} from './config';
 
 class RaiderIO {
   static async getCharacter(name) {
     let char = {};
-    await axios.get("https://raider.io/api/characters/" + region + "/" + realm + "/" + name + "/?season=" + season + "&tier=21").then(async (response) => {
+    await axios.get("https://raider.io/api/characters/" + region + "/" + realm + "/" + name + "/?season=" + season + "&tier=" + tier).then(async (response) => {
       const runs = await RaiderIO.getCharacterDetails(response.data.characterDetails.character.id);
       char = {
         info: response.data,
