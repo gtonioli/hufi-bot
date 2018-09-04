@@ -1,14 +1,15 @@
+import querystring from 'querystring';
 import {guild, realm, region} from './config';
 
 const DG_NAMES = {
   "AD": "Atal'Dazar",
-  "FH": "Andra do Facão",
+  "FH": "Angra do Facão",
   "KR": "Repouso do Rei",
   "SOTS": "Santuário da Tempestade",
   "SIEGE": "Cerco de Boralus",
   "TOS": "Templo de Sethraliss",
   "ML": "A MEGAMINA!!!",
-  "UNDR": "A terra Podre",
+  "UNDR": "Terra Podre",
   "TD": "Tol Dagor",
   "WM": "Mansão Capelo"
 };
@@ -71,7 +72,7 @@ class Util {
   static generateRankEmbed(chars, total) {
     let embed = {
       title: "Top " + total,
-      url: "https://raider.io/guilds/" + region + "/" + realm + "/" + guild + "/mythic-plus-characters"
+      url: "https://raider.io/guilds/" + region + "/" + realm + "/" + querystring.escape(guild) + "/mythic-plus-characters"
     };
 
     let fields = [];
