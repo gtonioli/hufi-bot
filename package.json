@@ -9,6 +9,7 @@
     "build": "babel src -d dist",
     "build-dev": "babel src -d dist --source-maps"
   },
+  "heroku-run-build-script": true,
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "axios": "^0.18.0",
