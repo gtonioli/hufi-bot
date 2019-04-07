@@ -3,22 +3,20 @@ import Util from './util';
 
 class Commands {
   static async raiderIoScore(message, charName) {
-    const char = await RaiderIO.getCharacter(charName);
-
-    if (char.status && char.status === "error") {
-      message.reply(char.msg);
-    } else {
+    try {
+      const char = await RaiderIO.getCharacter(charName);
       message.channel.send(Util.generateScoreEmbed(char));
+    } catch (e) {
+      message.reply(e.message);
     }
   }
 
   static async rank(message, total) {
-    const rank = await RaiderIO.getRank(total);
-
-    if (rank.status && rank.status === "error") {
-      message.reply(rank.msg);
-    } else {
+    try {
+      const rank = await RaiderIO.getRank();
       message.channel.send(Util.generateRankEmbed(rank, total));
+    } catch (e) {
+      message.reply(e.message);
     }
   }
 }

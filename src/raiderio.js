@@ -3,49 +3,36 @@ import {guild, realm, region, season, tier} from './config';
 
 class RaiderIO {
   static async getCharacter(name) {
-    let char = {};
-    await axios.get("https://raider.io/api/characters/" + region + "/" + realm + "/" + name + "/?season=" + season + "&tier=" + tier).then(async (response) => {
+    return await axios.get("https://raider.io/api/characters/" + region + "/" + realm + "/" + name + "/?season=" + season + "&tier=" + tier).then(async (response) => {
       const runs = await RaiderIO.getCharacterDetails(response.data.characterDetails.character.id);
-      char = {
+
+      return {
         info: response.data,
         runs: runs
       };
-    }).catch(() => {
-      char = {
-        status: "error",
-        msg: "Char não encontrado =("
+    }).catch((err) => {
+      if (err instanceof Error) {
+        throw err;
       }
-    });
 
-    return char;
+      throw new Error("Char não encontrado =( 2");
+    });
   }
 
   static async getCharacterDetails(id) {
-    let details = {};
-    await axios.get("https://raider.io/api/characters/mythic-plus-scored-runs?season=" + season + "&role=all&mode=scored&affixes=all&date=all&characterId=" + id).then((response) => {
-      details = response.data;
+    return await axios.get("https://raider.io/api/characters/mythic-plus-scored-runs?season=" + season + "&role=all&mode=scored&affixes=all&date=all&characterId=" + id).then((response) => {
+      return response.data;
     }).catch(() => {
-      details = {
-        status: "error",
-        msg: "Erro ao buscar informações =("
-      };
+      throw new Error("Erro ao buscar informações =( 2");
     });
-
-    return details;
   }
 
   static async getRank() {
-    let rank = [];
-    await axios.get("https://raider.io/api/mythic-plus/rankings/characters?region=" + region + "&realm=" + realm + "&guild=" + guild + "&season=" + season + "&class=all&role=all&page=0").then((response) => {
-      rank = response.data.rankings.rankedCharacters;
+    return await axios.get("https://raider.io/api/mythic-plus/rankings/characters?region=" + region + "&realm=" + realm + "&guild=" + guild + "&season=" + season + "&class=all&role=all&page=0").then((response) => {
+      return response.data.rankings.rankedCharacters;
     }).catch(() => {
-      rank = {
-        status: "error",
-        msg: "Erro ao buscar informações =("
-      };
+      throw new Error("Erro ao buscar informações =(");
     });
-
-    return rank;
   }
 }
 
