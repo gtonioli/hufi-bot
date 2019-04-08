@@ -15,7 +15,7 @@ class RaiderIO {
         throw err;
       }
 
-      throw new Error("Char não encontrado =( 2");
+      throw new Error("Char não encontrado =(");
     });
   }
 
@@ -23,7 +23,7 @@ class RaiderIO {
     return await axios.get("https://raider.io/api/characters/mythic-plus-scored-runs?season=" + season + "&role=all&mode=scored&affixes=all&date=all&characterId=" + id).then((response) => {
       return response.data;
     }).catch(() => {
-      throw new Error("Erro ao buscar informações =( 2");
+      throw new Error("Erro ao buscar informações =(");
     });
   }
 
