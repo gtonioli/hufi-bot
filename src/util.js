@@ -1,5 +1,6 @@
 import querystring from 'querystring';
 import {guild, realm, region} from './config';
+import slugify from "slugify";
 
 const DG_NAMES = {
   "AD": "Atal'Dazar",
@@ -14,6 +15,13 @@ const DG_NAMES = {
   "WM": "Mansão Capelo"
 };
 
+const getChartUrl = (region, realm, name) => {
+  const slug = slugify(region + "_" + realm + "_" + name, {
+    lower: true
+  });
+  return "https://s3.amazonaws.com/hufi-char-history-prod/charts/evolution/" + slug + ".png";
+};
+
 class Util {
   static generateScoreEmbed(char) {
     const name = char.info.characterDetails.character.name;
@@ -23,6 +31,9 @@ class Util {
       description: "Score: **" + Math.round(char.info.characterDetails.mythicPlusScores.all.score) + "**",
       thumbnail: {
         url: "https:" + char.info.characterDetails.character.thumbnailUrl
+      },
+      image: {
+        url: getChartUrl(region, realm, name)
       }
     };
 
