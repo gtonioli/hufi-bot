@@ -19,7 +19,8 @@ const getChartUrl = (region, realm, name) => {
   const slug = slugify(region + "_" + realm + "_" + name, {
     lower: true
   });
-  return "https://s3.amazonaws.com/hufi-char-history-prod/charts/evolution/" + slug + ".png";
+  const now = new Date();
+  return "https://s3.amazonaws.com/hufi-char-history-prod/charts/evolution/" + slug + ".png?t=" + now.getTime();
 };
 
 class Util {
