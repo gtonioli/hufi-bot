@@ -41,3 +41,7 @@ heroku config:set DISCORD_TOKEN=XXX
 ```
 git push heroku master
 ```
+
+## Other projects
+- [Hufi Char History](https://github.com/gtonioli/hufi-char-history)
+- [Hufi Plot.ly](https://github.com/gtonioli/hufi-plotly)
