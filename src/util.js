@@ -12,7 +12,9 @@ const DG_NAMES = {
   "ML": "A MEGAMINA!!!",
   "UNDR": "Terra Podre",
   "TD": "Tol Dagor",
-  "WM": "Mansão Capelo"
+  "WM": "Mansão Capelo",
+  "WORK": "Operação: Gnomecan - Oficina",
+  "YARD": "Operação: Gnomecan - Ferro-velho"
 };
 
 const getChartUrl = (region, realm, name) => {
