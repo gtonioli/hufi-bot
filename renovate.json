@@ -1,5 +1,15 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "updateTypes": ["digest", "minor", "patch", "pin"],
+      "automerge": true
+    }
   ]
 }
