@@ -10,7 +10,7 @@ const DG_NAMES = {
   DOS: 'O Outro Lado',
   HOA: 'Salões da Expiação',
   MISTS: 'Brumas de Tirna Scithe',
-  MW: 'A Chaga Necrótica',
+  NW: 'A Chaga Necrótica',
 };
 
 const getChartUrl = (region, realm, name) => {
