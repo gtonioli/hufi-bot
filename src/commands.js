@@ -1,7 +1,7 @@
 import { getCharacter, getRank } from './raiderio';
 import { generateScoreEmbed, generateRankEmbed } from './util';
 
-const raiderIoScore = (message, charName) => {
+const raiderIoScore = async (message, charName) => {
   try {
     const char = await getCharacter(charName);
     message.channel.send(generateScoreEmbed(char));
@@ -10,7 +10,7 @@ const raiderIoScore = (message, charName) => {
   }
 };
 
-const rank = (message, total) => {
+const rank = async (message, total) => {
   try {
     const rank = await getRank();
     message.channel.send(generateRankEmbed(rank, total));
@@ -19,7 +19,4 @@ const rank = (message, total) => {
   }
 };
 
-export {
-  raiderIoScore,
-  rank
-};
+export { raiderIoScore, rank };
