@@ -1,8 +1,8 @@
 {
   "name": "hufi-bot",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "engines": {
-    "node": "12.x.x"
+    "node": "15.x"
   },
   "scripts": {
     "start": "node dist/server.js",
@@ -11,15 +11,15 @@
   },
   "heroku-run-build-script": true,
   "dependencies": {
-    "@babel/polyfill": "7.8.7",
-    "axios": "0.19.2",
-    "discord.js": "11.6.4",
+    "@babel/polyfill": "7.12.1",
+    "axios": "0.21.0",
+    "discord.js": "12.5.1",
     "dotenv": "8.2.0",
-    "slugify": "1.4.0"
+    "slugify": "1.4.6"
   },
   "devDependencies": {
-    "@babel/cli": "7.8.4",
-    "@babel/core": "7.9.0",
-    "@babel/preset-env": "7.9.5"
+    "@babel/cli": "7.12.8",
+    "@babel/core": "7.12.9",
+    "@babel/preset-env": "7.12.7"
   }
 }

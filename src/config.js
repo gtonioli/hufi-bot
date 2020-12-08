@@ -4,5 +4,5 @@ module.exports = {
   season: process.env.SEASON,
   tier: process.env.TIER,
   guild: process.env.GUILD,
-  version: require('../package.json').version
+  version: require('../package.json').version,
 };
