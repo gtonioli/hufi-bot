@@ -1,8 +1,8 @@
 import '@babel/polyfill';
 import 'dotenv/config';
-import Commands from './commands';
+import { Client } from 'discord.js';
+import { raiderIoScore, rank } from './commands';
 import { version } from './config';
-import { Client } from 'discord.js/src';
 
 const client = new Client();
 
@@ -21,11 +21,11 @@ client.on('message', async (message) => {
           }
         }
 
-        await Commands.rank(message, total);
+        await rank(message, total);
       } else if (command === 'version') {
         message.reply(version);
       } else {
-        await Commands.raiderIoScore(message, command);
+        await raiderIoScore(message, command);
       }
     }
   }
