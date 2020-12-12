@@ -63,7 +63,7 @@ const generateScoreEmbed = (char) => {
       }
 
       field.value += '\n';
-      field.value += 'Tempo: ' + Util.msToText(run.clear_time_ms);
+      field.value += 'Tempo: ' + msToText(run.clear_time_ms);
     } else {
       field.value += 'Chave ainda não realizada :thinking:';
     }
