@@ -7,7 +7,7 @@ const raiderIoScore = async (message, charName) => {
     const guild = char.info.characterDetails.character.guild;
 
     if (guild === null || guild.name !== 'RED Canids') {
-      message.channel.send('Você não é da guilda :)');
+      message.channel.send(`O char ${char} não é da guilda :)`);
       return;
     }
 
