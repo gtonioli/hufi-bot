@@ -4,6 +4,13 @@ import { generateScoreEmbed, generateRankEmbed } from './util';
 const raiderIoScore = async (message, charName) => {
   try {
     const char = await getCharacter(charName);
+    const guild = char.info.characterDetails.character.guild;
+
+    if (guild === null || guild.name !== 'RED Canids') {
+      message.channel.send('Você não é da guilda :)');
+      return;
+    }
+
     message.channel.send(generateScoreEmbed(char));
   } catch (e) {
     message.reply(e.message);
