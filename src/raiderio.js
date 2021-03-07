@@ -14,7 +14,7 @@ const getCharacterDetails = async (id) => {
 
 const getCharacter = async (name) => {
   return await axios
-    .get('https://raider.io/api/characters/' + region + '/' + realm + '/' + name + '/?season=' + season + '&tier=' + tier)
+    .get('https://raider.io/api/characters/' + region + '/' + realm + '/' + encodeURIComponent(name) + '/?season=' + season + '&tier=' + tier)
     .then(async (response) => {
       const runs = await getCharacterDetails(response.data.characterDetails.character.id);
 
@@ -40,7 +40,7 @@ const getRank = async () => {
         '&realm=' +
         realm +
         '&guild=' +
-        guild +
+        encodeURIComponent(guild) +
         '&season=' +
         season +
         '&class=all&role=all&page=0',
